@@ -21,22 +21,29 @@ namespace WebService
 
         public async Task Invoke(HttpContext context)
         {
-            if (context.Request.Path == "/ws")
-            {
-                if (context.WebSockets.IsWebSocketRequest)
-                {
-                    WebSocket webSocket = await context.WebSockets.AcceptWebSocketAsync();
-                    await Echo(_serviceContext, context, webSocket);
-                }
-                else
-                {
-                    context.Response.StatusCode = 400;
-                }
-            }
-            else
+            if (!context.Request.Path.StartsWithSegments("/ws", out var remainingPath))
             {
                 await _next.Invoke(context);
+                return;
             }
+
+            if (!context.WebSockets.IsWebSocketRequest)
+            {
+                context.Response.StatusCode = 400;
+                return;
+            }
+
+            ServiceEventSource.Current.ServiceMessage(_serviceContext, $"Remaining path is {remainingPath}");
+
+            var id = remainingPath.ToString().TrimStart('/');
+            if (id.Contains('/'))
+            {
+                context.Response.StatusCode = 400;
+                return;
+            }
+
+            WebSocket webSocket = await context.WebSockets.AcceptWebSocketAsync();
+            await Echo(_serviceContext, context, webSocket);
         }
 
 

@@ -17,7 +17,7 @@ namespace ClientApp
         {
             using (var webSocket = new ClientWebSocket())
             {
-                await webSocket.ConnectAsync(new Uri("ws://localhost:8280/ws"), CancellationToken.None);
+                await webSocket.ConnectAsync(new Uri("ws://localhost:8280/ws/abc-123"), CancellationToken.None);
                 var bytes = Encoding.UTF8.GetBytes("Hello from the client!");
                 await webSocket.SendAsync(new ArraySegment<byte>(bytes), WebSocketMessageType.Text, true, CancellationToken.None);
 
