@@ -5,9 +5,13 @@ VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "SocketApp", "SocketApp\SocketApp.sfproj", "{00F5A3AF-4590-4C42-99FB-7717C7777AC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebService", "WebService\WebService.csproj", "{564F55E7-BD33-4EC3-8BF3-781969E9CC0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebService", "WebService\WebService.csproj", "{564F55E7-BD33-4EC3-8BF3-781969E9CC0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientApp", "ClientApp\ClientApp.csproj", "{3D9264B7-DD84-4915-BE97-2CC003681517}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientApp", "ClientApp\ClientApp.csproj", "{3D9264B7-DD84-4915-BE97-2CC003681517}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkActor", "WorkActor\WorkActor.csproj", "{3AC37350-18CD-401B-883A-53D6597FD78B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkActor.Interfaces", "WorkActor.Interfaces\WorkActor.Interfaces.csproj", "{F8C71476-4CF1-4DA9-846C-D8D5EAC05287}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +45,18 @@ Global
 		{3D9264B7-DD84-4915-BE97-2CC003681517}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3D9264B7-DD84-4915-BE97-2CC003681517}.Release|x64.ActiveCfg = Release|Any CPU
 		{3D9264B7-DD84-4915-BE97-2CC003681517}.Release|x64.Build.0 = Release|Any CPU
+		{3AC37350-18CD-401B-883A-53D6597FD78B}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{3AC37350-18CD-401B-883A-53D6597FD78B}.Debug|x64.ActiveCfg = Debug|x64
+		{3AC37350-18CD-401B-883A-53D6597FD78B}.Debug|x64.Build.0 = Debug|x64
+		{3AC37350-18CD-401B-883A-53D6597FD78B}.Release|Any CPU.ActiveCfg = Release|x64
+		{3AC37350-18CD-401B-883A-53D6597FD78B}.Release|x64.ActiveCfg = Release|x64
+		{3AC37350-18CD-401B-883A-53D6597FD78B}.Release|x64.Build.0 = Release|x64
+		{F8C71476-4CF1-4DA9-846C-D8D5EAC05287}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{F8C71476-4CF1-4DA9-846C-D8D5EAC05287}.Debug|x64.ActiveCfg = Debug|x64
+		{F8C71476-4CF1-4DA9-846C-D8D5EAC05287}.Debug|x64.Build.0 = Debug|x64
+		{F8C71476-4CF1-4DA9-846C-D8D5EAC05287}.Release|Any CPU.ActiveCfg = Release|x64
+		{F8C71476-4CF1-4DA9-846C-D8D5EAC05287}.Release|x64.ActiveCfg = Release|x64
+		{F8C71476-4CF1-4DA9-846C-D8D5EAC05287}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

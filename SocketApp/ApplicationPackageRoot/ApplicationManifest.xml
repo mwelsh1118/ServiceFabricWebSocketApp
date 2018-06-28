@@ -2,10 +2,16 @@
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="SocketAppType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="WebService_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="WorkActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="WorkActorService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="WorkActorService_TargetReplicaSetSize" DefaultValue="3" />
   </Parameters>
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
        should match the Name and Version attributes of the ServiceManifest element defined in the 
        ServiceManifest.xml file. -->
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="WorkActorPkg" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="WebServicePkg" ServiceManifestVersion="1.0.0" />
     <ConfigOverrides />
@@ -20,6 +26,11 @@
       <StatelessService ServiceTypeName="WebServiceType" InstanceCount="[WebService_InstanceCount]">
         <SingletonPartition />
       </StatelessService>
+    </Service>
+    <Service Name="WorkActorService" GeneratedIdRef="0c1d9a4c-9e6d-421b-aa85-2c48eb42c977|Persisted">
+      <StatefulService ServiceTypeName="WorkActorServiceType" TargetReplicaSetSize="[WorkActorService_TargetReplicaSetSize]" MinReplicaSetSize="[WorkActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[WorkActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
     </Service>
   </DefaultServices>
 </ApplicationManifest>
